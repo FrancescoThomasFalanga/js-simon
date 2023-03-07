@@ -109,7 +109,7 @@ showResultButtonEl.addEventListener("click", function() {
         // li pusho all'interno del correctNumbers[];
         for (i = 0; i < guessedNumbers.length; i++) {
     
-            if (haveIt.includes(guessedNumbers[i])) {
+            if (haveIt.includes(guessedNumbers[i]) && !correctNumbers.includes(guessedNumbers[i])) {
     
                 correctNumbers.push(guessedNumbers[i]);
     
