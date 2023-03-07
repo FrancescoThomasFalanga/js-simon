@@ -38,17 +38,21 @@ startButtonEl.addEventListener("click", function() {
     
     
     // dopo un countdown di 10 secondi elimina i numeri in PAGINA
-    const countdown = setInterval(
-    
-        () => {
-    
-            if (secondsLeft <= 0) clearInterval(countdown);
-            showRandomNumber.value = secondsLeft;
+    const countdown = setInterval(() => {
+
+        if (secondsLeft <= 0) {
+
+            clearInterval(countdown);
+            showRandomNumber.value = "";
             showRandomNumber.textContent = "";
-            secondsLeft -= 1;
-    
-        }, 
-    10000)
+            return;
+
+        }
+
+        showRandomNumber.value = secondsLeft;
+        secondsLeft -= 1;
+        
+    }, 1000);
 
     // disabilito il pulsante play
     startButtonEl.disabled = true;
