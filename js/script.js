@@ -42,13 +42,20 @@ const countdown = setInterval(
 
 showResultButtonEl.addEventListener("click", function() {
 
-    let firstNumberEl = document.getElementById("first-number").value;
-    
-    console.log(firstNumberEl);
+    // variabile inizializzata per scrivere il risultato in pagina
+    let resultEl = document.getElementById("result");
 
-    if(haveIt.includes(parseInt(firstNumberEl))) {
+    // variabili che vanno ad individuare all'interno del documento i numeri inseriti
+    let firstNumberEl = document.getElementById("first-number").value;
+    let secondNumberEl = document.getElementById("second-number").value;
+    let thirdNumberEl = document.getElementById("third-number").value;
+    let fourthNumberEl = document.getElementById("fourth-number").value;
+    let fifthNumberEl = document.getElementById("fifth-number").value;
+
+    // condizioni SE hai vinto o perso
+    if(haveIt.includes(parseInt(firstNumberEl)) && haveIt.includes(parseInt(secondNumberEl)) && haveIt.includes(parseInt(thirdNumberEl)) && haveIt.includes(parseInt(fourthNumberEl)) && haveIt.includes(parseInt(fifthNumberEl))) {
         
-        console.log("hai vinto");
+        resultEl.innerText = "Bravo, sei riuscito ad inserire tutti i numeri correttamente";
 
     }
 
