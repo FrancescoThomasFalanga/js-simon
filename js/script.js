@@ -52,10 +52,39 @@ showResultButtonEl.addEventListener("click", function() {
     let fourthNumberEl = document.getElementById("fourth-number").value;
     let fifthNumberEl = document.getElementById("fifth-number").value;
 
-    // condizioni SE hai vinto o perso
-    if(haveIt.includes(parseInt(firstNumberEl)) && haveIt.includes(parseInt(secondNumberEl)) && haveIt.includes(parseInt(thirdNumberEl)) && haveIt.includes(parseInt(fourthNumberEl)) && haveIt.includes(parseInt(fifthNumberEl))) {
-        
-        resultEl.innerText = "Bravo, sei riuscito ad inserire tutti i numeri correttamente";
+    // condizioni SE hai vinto o meno
+    if (firstNumberEl == "" || secondNumberEl == "" || thirdNumberEl == "" || fourthNumberEl == "" || fifthNumberEl == "") {
+
+        resultEl.innerText = "Non stai dimenticando nulla?";
+
+    } else {
+
+        // creo un array vuoto per inserire i numeri dati dall'utente
+        let guessedNumbers = [];
+
+        // pusho i numeri inseriti dall'utente nell'array sopra
+        guessedNumbers.push(parseInt(firstNumberEl));
+        guessedNumbers.push(parseInt(secondNumberEl));
+        guessedNumbers.push(parseInt(thirdNumberEl));
+        guessedNumbers.push(parseInt(fourthNumberEl));
+        guessedNumbers.push(parseInt(fifthNumberEl));
+    
+        // creo un array vuoto per inserire solo i numeri corretti
+        let correctNumbers = [];
+    
+        // ciclo per verificare se i numeri contenuti all'interno del guessedNumber[] siano corretti o meno, se lo sono
+        // li pusho all'interno del correctNumbers[];
+        for (i = 0; i < guessedNumbers.length; i++) {
+    
+            if (haveIt.includes(guessedNumbers[i])) {
+    
+                correctNumbers.push(guessedNumbers[i]);
+    
+            }
+        }
+    
+    
+        resultEl.innerText = `Sei riuscito ad indovinare ${correctNumbers.length} numeri su 5: ${correctNumbers.join(", ")}`;
 
     }
 
