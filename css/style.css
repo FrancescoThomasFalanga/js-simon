@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    text-align: center;
+}
+
+h1 {
+    
+    margin: 50px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    margin: 0 auto;
+}
+
+button {
+    margin: 50px 0;
+    padding: 3px 10px;
+}
+
+input {
+    padding: 5px 0;
+    text-align: center;
+    width: fit-content;
+}
+
+#show-random-number {
+    margin: 30px;
+}
