@@ -6,12 +6,13 @@
 }
 
 body {
-    text-align: center;
-}
-
-h1 {
-    
-    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(../img/mhhh.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
@@ -21,11 +22,6 @@ h1 {
     gap: 30px;
 
     margin: 0 auto;
-}
-
-button {
-    margin: 50px 0;
-    padding: 3px 10px;
 }
 
 input {
@@ -38,3 +34,170 @@ input {
     margin: 30px;
     font-size: 32px;
 }
+
+
+#show-result-button {
+    margin: 50px 0;
+}
+
+
+
+/* COSE STRANE LO AMMETTO */
+.loader {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 25px 25px 75px rgba(191, 123, 255, 0.781);
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 50px;
+  }
+  
+  .loader::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    background: transparent;
+    border: 1px dashed#444;
+    border-radius: 50%;
+    box-shadow: inset -5px -5px 25px rgba(191, 123, 255, 0.781),
+    inset 5px 5px 35px rgba(191, 123, 255, 0.781);
+  }
+  
+  .loader::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px dashed#444;
+    box-shadow: inset -5px -5px 25px rgba(191, 123, 255, 0.781),
+    inset 5px 5px 35px rgba(191, 123, 255, 0.781);
+  }
+  
+  .loader span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background: transparent;
+    transform-origin: top left;
+    animation: radar81 2s linear infinite;
+    border-top: 1px dashed #fff;
+  }
+  
+  .loader span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(217, 176, 255);
+    transform-origin: top left;
+    transform: rotate(-55deg);
+    filter: blur(30px) drop-shadow(20px 20px 20px rgba(191, 123, 255, 0.781));
+  }
+  
+  @keyframes radar81 {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+
+
+
+
+
+  button, #result, #show-random-number  {
+    --glow-color: rgb(217, 176, 255);
+    --glow-spread-color: rgba(191, 123, 255, 0.781);
+    --enhanced-glow-color: rgb(231, 206, 255);
+    --btn-color: rgb(100, 61, 136);
+    border: .25em solid var(--glow-color);
+    padding: 1em 3em;
+    color: var(--glow-color);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 1em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+   }
+   
+   button::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 120%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--glow-spread-color);
+    filter: blur(2em);
+    opacity: .7;
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+   }
+   
+   button:hover {
+    color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 2em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+   }
+   
+   button:active {
+    box-shadow: 0 0 0.6em .25em var(--glow-color),
+           0 0 2.5em 2em var(--glow-spread-color),
+           inset 0 0 .5em .25em var(--glow-color);
+   }
+
+
+
+
+
+   .input {
+    background-color: #383838;
+    border: 1ex solid none;
+    border-top-width: 1.7em;
+    margin: 0;
+    padding: 0;
+    color: #383838;
+    word-wrap: break-word;
+    outline: 7px solid #383838;
+    height: 30px;
+    font-size: 17px;
+    text-align: center;
+    transition: all 1s;
+    max-width: 190px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+   }
+   
+   .input:hover {
+    border-top-width: 0.2em;
+    background-color: #f1e8e8;
+   }
+   
+   .input:focus {
+    border-top-width: 0.2em;
+    background-color: #f1e8e8;
+   }
+/* /COSE STRANE LO AMMETTO */

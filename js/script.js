@@ -14,36 +14,67 @@ quali dei numeri da indovinare sono stati individuati.
 // campo per visualizzare tutti i numeri random generati
 let showRandomNumber = document.getElementById("show-random-number");
 
+// pulsante per mostrare il risultato
 let showResultButtonEl = document.getElementById("show-result-button");
+
+// variabile inizializzata per scrivere il risultato in pagina
+let resultEl = document.getElementById("result");
+
 
 // creo array che conterrà i numeri random
 let haveIt = [];
 // secondi prima che i numeri despawnino
 let secondsLeft = 10;
 
+// pulsante di start e di clear
+let startButtonEl = document.getElementById("start-button");
+let clearButtonEl = document.getElementById("clear-button");
 
-// mostra i numeri casuali in PAGINA
-showNumbers();
+
+startButtonEl.addEventListener("click", function() {
+
+    // mostra i numeri casuali in PAGINA
+    showNumbers();
+    
+    
+    // dopo un countdown di 10 secondi elimina i numeri in PAGINA
+    const countdown = setInterval(
+    
+        () => {
+    
+            if (secondsLeft <= 0) clearInterval(countdown);
+            showRandomNumber.value = secondsLeft;
+            showRandomNumber.textContent = "";
+            secondsLeft -= 1;
+    
+        }, 
+    10000)
+
+    // disabilito il pulsante play
+    startButtonEl.disabled = true;
+
+})
 
 
-// dopo un countdown di 10 secondi elimina i numeri in PAGINA
-const countdown = setInterval(
+clearButtonEl.addEventListener("click", function() {
 
-    () => {
+    // riabilito il pulsante play
+    startButtonEl.disabled = false;
 
-        if (secondsLeft <= 0) clearInterval(countdown);
-        showRandomNumber.value = secondsLeft;
-        showRandomNumber.textContent = "";
-        secondsLeft -= 1;
+    // riporto l'array dei numeri casuali a zero indici
+    haveIt = [];
 
-    }, 
-10000)
+    secondsLeft = 10;
+
+    resultEl.style.padding = "0";
+    resultEl.innerText = "";
+
+})
+
 
 
 showResultButtonEl.addEventListener("click", function() {
 
-    // variabile inizializzata per scrivere il risultato in pagina
-    let resultEl = document.getElementById("result");
 
     // variabili che vanno ad individuare all'interno del documento i numeri inseriti
     let firstNumberEl = document.getElementById("first-number").value;
@@ -56,6 +87,8 @@ showResultButtonEl.addEventListener("click", function() {
     if (firstNumberEl == "" || secondNumberEl == "" || thirdNumberEl == "" || fourthNumberEl == "" || fifthNumberEl == "") {
 
         resultEl.innerText = "Non stai dimenticando nulla?";
+
+        resultEl.style.padding = "1em 3em";
 
     } else {
 
@@ -86,6 +119,8 @@ showResultButtonEl.addEventListener("click", function() {
     
         resultEl.innerText = `Sei riuscito ad indovinare ${correctNumbers.length} numeri su 5: ${correctNumbers.join(", ")}`;
 
+
+        resultEl.style.padding = "1em 3em";
     }
 
 })
